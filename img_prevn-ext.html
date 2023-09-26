@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	    <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1" >
+<head>
+  <style>
+  	body {
+      background: #f6f0e2;
+  	}
+  
+  .button {
+  background-color: #f6f0e2;
+  } 
+  
+    .slideshow {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .slideshow img {
+      width: 335px;
+      height: 415px;
+    }
+        .download {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+     .download img {
+      width: 200px;
+      height: 58px;
+    }
+  </style>
+</head>
+<body>
+  <div class="slideshow">
+    <button id="previousBtn" class="button">Préc. السابق</button>
+    <img id="image" src="mfc/Dicz1.jpg">
+    <button id="nextBtn" class="button">Suiv. التالي</button>
+  </div>
+  <br>
+    <div class="download" id="dwnld">
+  	<img id="image" src="mfc/Dicz4.jpg" onclick="window.location.href='market://details?id=com.zoto.mgar';">
+  </div>
+    <br> <center><p id="dn"> اضغط على الزر الأصفر للتحميل</p></center>
+  <script>
+    const images = ['mfc/Dicz1.jpg', 'mfc/Dicz2.jpg', 'mfc/Dicz3.jpg'];
+    let currentIndex = 0;
+
+    const previousBtn = document.getElementById('previousBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const image = document.getElementById('image');
+    const dwnld = document.getElementById('dwnld');
+
+    previousBtn.addEventListener('click', () => {
+      currentIndex = (currentIndex - 1 + images.length) % images.length;
+      image.src = images[currentIndex];
+    });
+
+    nextBtn.addEventListener('click', () => {
+      currentIndex = (currentIndex + 1) % images.length;
+      image.src = images[currentIndex];
+    });
+  </script>
+</body>
+</html>
